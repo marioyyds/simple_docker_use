@@ -2,6 +2,10 @@
 
 [TOC]
 
+## Docker离线安装
+
+安装`deb_for_ubuntu20`文件夹中的所有`*.deb`包，然后执行`sudo usermod -aG docker ${USER}`，最后重启并启动docker（`systemctl start docker`）。
+
 ## Docker使用
 
 > 本文档给出项目用的几个指令，具体可以参见  
