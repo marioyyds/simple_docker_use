@@ -1,0 +1,19 @@
+name: demo-container
+services:
+  detatt:
+    container_name: demo
+    image: demo:v1
+    ports:
+      # container port:server port
+      - "7860:7860"
+    volumes:
+      # container path:server path
+      - ./:/home/
+    # restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              device_ids: ['0']
+              capabilities: ["gpu"]

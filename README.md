@@ -1,6 +1,19 @@
 # Simple use for docker image and container
 
-[TOC]
+一个简单使用Docker的仓库，包括Docker环境安装（offline for ubuntu20.4）、简单的Dockerfile、简单的compose.yml以及相关指令和工具。
+
+- [Docker离线安装](#docker离线安装)
+- [Docker使用](#docker使用)
+  - [创建镜像](#创建镜像)
+  - [启动一个容器](#启动一个容器)
+  - [进入一个正在运行的容器](#进入一个正在运行的容器)
+    - [使用docker exec](#使用docker-exec)
+    - [使用docker attach](#使用docker-attach)
+  - [将宿主机的文件拷入到docker容器](#将宿主机的文件拷入到docker容器)
+- [使用Docker Compose管理容器（启动或关闭）](#使用docker-compose管理容器（启动或关闭）)
+  - [启动容器](#启动容器)
+  - [关闭容器](#关闭容器)
+- [使用VSCode Docker插件管理Docker](#使用vscode-docker插件管理docker)
 
 ## Docker离线安装
 
@@ -63,6 +76,16 @@ docker exec -it 容器id /bin/bash
 ### 将宿主机的文件拷入到docker容器  
 
 具体参见，[链接](https://blog.csdn.net/qq_27295403/article/details/100579631)  
+
+## 使用Docker Compose管理容器（启动或关闭）
+
+### 启动容器
+
+进入当前路径，执行命令：`docker compose up -d`，即可启动按照`compose.yml`配置，基于`demo`镜像，启动`demo-container`容器。
+
+### 关闭容器
+
+进入当前路径，执行命令：`docker compose down`，即可关闭`demo-container`容器。
 
 ## 使用VSCode Docker插件管理Docker
 

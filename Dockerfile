@@ -1,4 +1,7 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
+
+# 暴露端口
+EXPOSE 7860
 
 # 进入root根目录环境
 RUN cd ~
