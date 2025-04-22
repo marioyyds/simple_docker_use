@@ -5,15 +5,18 @@
 - [Docker离线安装](#docker离线安装)
 - [Docker使用](#docker使用)
   - [创建镜像](#创建镜像)
-  - [启动一个容器](#启动一个容器)
-  - [进入一个正在运行的容器](#进入一个正在运行的容器)
+  - [启动容器](#启动容器)
+  - [进入运行中的容器](#进入一个正在运行的容器)
     - [使用docker exec](#使用docker-exec)
     - [使用docker attach](#使用docker-attach)
-  - [将宿主机的文件拷入到docker容器](#将宿主机的文件拷入到docker容器)
-- [使用Docker Compose管理容器（启动或关闭）](#使用docker-compose管理容器（启动或关闭）)
+  - [宿主机文件拷贝到容器](#将宿主机的文件拷入到docker容器)
+  - [容器commit为镜像](#将容器commit成镜像)
+  - [镜像导出](#镜像导出)
+  - [镜像导入](#镜像导入)
+- [使用Docker Compose管理容器](#使用docker-compose管理容器启动或关闭)
   - [启动容器](#启动容器)
   - [关闭容器](#关闭容器)
-- [使用VSCode Docker插件管理Docker](#使用vscode-docker插件管理docker)
+- [使用VSCode Docker插件管理](#使用vscode-docker插件管理docker)
 
 ## Docker离线安装
 
@@ -76,6 +79,29 @@ docker exec -it 容器id /bin/bash
 ### 将宿主机的文件拷入到docker容器  
 
 具体参见，[链接](https://blog.csdn.net/qq_27295403/article/details/100579631)  
+
+### 将容器commit成镜像
+
+```bash
+# docker commit <container_id> <new_image_name>:<tag>
+docker commit my_container my_new_image
+```
+
+### 镜像导出
+
+```bash
+docker save -o <output_file>.tar <new_image_name>:<tag>
+# or
+docker export f299f501774c > hangger_server.tar
+```
+
+### 镜像导入
+
+```bash
+docker load -i <output_file>.tar
+# or
+docker import my_container.tar my_image:new_tag
+```
 
 ## 使用Docker Compose管理容器（启动或关闭）
 
